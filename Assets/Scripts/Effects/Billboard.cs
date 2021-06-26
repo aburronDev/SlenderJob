@@ -1,31 +1,34 @@
 using UnityEngine;
 using aburron.Editor;
 
-public class Billboard : MonoBehaviour
+namespace aburron.Effect
 {
-	[SerializeField, Required] private Transform cam;
-
-	private void Update()
+	public class Billboard : MonoBehaviour
 	{
-		var camPos = cam.position;
-		camPos.y = 0.0f;
+		[SerializeField, Required] private Transform cam;
 
-		var pos = transform.position;
-		pos.y = 0.0f;
+		private void Update()
+		{
+			var camPos = cam.position;
+			camPos.y = 0.0f;
 
-		var dirToCamera = (camPos - pos).normalized;
-		var angleToCamera = GetAngleFromVector(dirToCamera);
+			var pos = transform.position;
+			pos.y = 0.0f;
 
-		transform.eulerAngles = new Vector3(0f, -angleToCamera + 90 + 180, 0f);
-	}
+			var dirToCamera = (camPos - pos).normalized;
+			var angleToCamera = GetAngleFromVector(dirToCamera);
 
-	private float GetAngleFromVector(Vector3 dir)
-	{
-		dir = dir.normalized;
+			transform.eulerAngles = new Vector3(0f, -angleToCamera + 90 + 180, 0f);
+		}
 
-		var angle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg;
-		if (angle < 0) angle += 360;
+		private float GetAngleFromVector(Vector3 dir)
+		{
+			dir = dir.normalized;
 
-		return angle;
+			var angle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg;
+			if (angle < 0) angle += 360;
+
+			return angle;
+		}
 	}
 }
