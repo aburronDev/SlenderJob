@@ -1,30 +1,33 @@
 ﻿using UnityEngine;
 using aburron.Input;
 
-[RequireComponent(typeof(Rigidbody))]
-public class FPSController : MonoBehaviour
+namespace aburron.FPS
 {
-	private Rigidbody controller;
-	private AbuInput input = new AbuInput();
-
-	public AbuInput Input { get => input; set => input = value; }
-
-	public Vector3 Position => controller.position;
-	public Quaternion Rotation => controller.rotation;
-
-	public void Move(Vector3 position) => controller.MovePosition(position);
-
-	#region MonoBehaviour Callbacks
-	private void Awake()
+	[RequireComponent(typeof(Rigidbody))]
+	public class FPSController : MonoBehaviour
 	{
-		controller = GetComponent<Rigidbody>();
+		private Rigidbody controller;
+		private AbuInput input = new AbuInput();
 
-		input.Enable();
-	}
+		public AbuInput Input { get => input; set => input = value; }
 
-	private void OnDestroy()
-	{
-		input.Disable();
+		public Vector3 Position => controller.position;
+		public Quaternion Rotation => controller.rotation;
+
+		public void Move(Vector3 position) => controller.MovePosition(position);
+
+		#region MonoBehaviour Callbacks
+		private void Awake()
+		{
+			controller = GetComponent<Rigidbody>();
+
+			input.Enable();
+		}
+
+		private void OnDestroy()
+		{
+			input.Disable();
+		}
+		#endregion
 	}
-	#endregion
 }

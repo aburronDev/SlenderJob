@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(FPSController))]
-public abstract class FPSBase : MonoBehaviour
+namespace aburron.FPS
 {
-	protected FPSController player;
-
-	#region MonoBehaviour Callbacks
-	protected virtual void Awake()
+	[RequireComponent(typeof(FPSController))]
+	public abstract class FPSBase : MonoBehaviour
 	{
-		player = GetComponent<FPSController>();
+		protected FPSController player;
 
-		EnableInput();
+		#region MonoBehaviour Callbacks
+		protected virtual void Awake()
+		{
+			player = GetComponent<FPSController>();
+
+			EnableInput();
+		}
+
+		protected virtual void OnDestroy()
+		{
+			DisableInput();
+		}
+		#endregion
+
+		public abstract void EnableInput();
+		public abstract void DisableInput();
 	}
-
-	protected virtual void OnDestroy()
-	{
-		DisableInput();
-	}
-	#endregion
-
-	public abstract void EnableInput();
-	public abstract void DisableInput();
 }
