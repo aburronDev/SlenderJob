@@ -24,7 +24,7 @@ namespace aburron.FPS
 		}
 		#endregion
 
-		#region Update Callbacks
+		#region Footsteps Callbacks
 		private void PlaySound()
 		{
 			if (!footstepEventConditionIsValid)

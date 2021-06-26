@@ -5,7 +5,7 @@ namespace aburron.FPS
 	public class FPSInteractor : FPSBase
 	{
 		[SerializeField, Editor.Required] private Camera cam = null;
-		[SerializeField] private float rayDistance = 1.0f;
+		[SerializeField] private float rayDistance = 3.0f;
 
 		#region Input Callbacks
 		private void FireRaycastButton(float buttonValue)

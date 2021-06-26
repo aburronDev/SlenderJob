@@ -28,7 +28,7 @@ namespace aburron.FPS
 		private void UpdateLookDir(Vector2 inputDir) => lookDir = inputDir;
 		#endregion
 
-		#region Update Callbacks
+		#region CameraLook Callbacks
 		private void Look()
 		{
 			lookDelta = Vector2.SmoothDamp(lookDelta, lookDir, ref lookVelocity, smoothTime);

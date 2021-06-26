@@ -34,7 +34,7 @@ namespace aburron.FPS
 		private void UpdateMoveDir(Vector2 inputDir) => moveDir = inputDir;
 		#endregion
 
-		#region Update Callbacks
+		#region Movement Callbacks
 		private void Move()
 		{
 			moveDir.Normalize();
