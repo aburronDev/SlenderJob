@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using aburron.Input;
 
 namespace aburron.FPS
 {
+	using Input;
+
 	[RequireComponent(typeof(Rigidbody))]
 	public class FPSController : MonoBehaviour
 	{

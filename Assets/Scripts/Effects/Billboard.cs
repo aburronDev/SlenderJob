@@ -1,11 +1,10 @@
 using UnityEngine;
-using aburron.Editor;
 
 namespace aburron.Effect
 {
 	public class Billboard : MonoBehaviour
 	{
-		[SerializeField, Required] private Transform cam;
+		[SerializeField, Editor.Required] private Transform cam;
 
 		private void Update()
 		{

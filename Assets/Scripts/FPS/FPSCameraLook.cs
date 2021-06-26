@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using aburron.Editor;
 
 namespace aburron.FPS
 {
@@ -7,7 +6,7 @@ namespace aburron.FPS
 	{
 		private const float camLimit = 90.0f;
 
-		[SerializeField, Required] private Camera cam = null;
+		[SerializeField, Editor.Required] private Camera cam = null;
 		[SerializeField] private float mouseSensitivity = 3.5f;
 		[SerializeField, Range(0.0f, 0.5f)] private float smoothTime = 0.03f;
 
