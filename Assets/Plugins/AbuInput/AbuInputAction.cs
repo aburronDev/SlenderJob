@@ -353,7 +353,7 @@ namespace aburron.Input
                 {
                     ""name"": """",
                     ""id"": ""7c6aa9f1-5af4-4b08-bc23-18fc51c9e23b"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
