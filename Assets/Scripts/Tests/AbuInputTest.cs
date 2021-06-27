@@ -1,23 +1,27 @@
 using UnityEngine;
-using aburron.Input;
 
-public class AbuInputTest : MonoBehaviour
+namespace aburron.Tests
 {
-	private AbuInput input = new AbuInput();
+	using Input;
 
-	public void Awake()
+	public class AbuInputTest : MonoBehaviour
 	{
-		input.Enable();
+		private AbuInput input = new AbuInput();
 
-		input.onActionBottomRow1 += TestInput;
-	}
+		public void Awake()
+		{
+			input.Enable();
 
-	private void TestInput(float inputValue) => Debug.Log($"AbuInput is working: {inputValue}");
+			input.onActionBottomRow1 += TestInput;
+		}
 
-	public void OnDestroy()
-	{
-		input.Disable();
+		private void TestInput(float inputValue) => Debug.Log($"AbuInput is working: {inputValue}");
 
-		input.onActionBottomRow1 -= TestInput;
+		public void OnDestroy()
+		{
+			input.Disable();
+
+			input.onActionBottomRow1 -= TestInput;
+		}
 	}
 }

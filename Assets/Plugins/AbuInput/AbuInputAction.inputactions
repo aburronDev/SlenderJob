@@ -633,6 +633,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "51907b64-a438-4266-95f7-95473d1cc8c7",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Keyboard",
                     "id": "8aa49af8-9b3f-4f68-bea2-96f43b66735d",
                     "path": "1DAxis",

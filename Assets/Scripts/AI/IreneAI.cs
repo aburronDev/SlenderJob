@@ -16,23 +16,34 @@ namespace aburron.AI
 		[Header("Time Unseen")]
 		[SerializeField] private float maxTimeUnseen = 4.0f;
 
-		private float timeUnseen;
+		private bool behaviourActivated = false;
+		private bool isAlived = false;
+		private float timeUnseen = 0.0f;
+
+		private void Awake()
+		{
+			Events.GameEvents.onPageInteraction += CheckIreneBehaviour;
+			Events.GameEvents.onPageTaken += Alive;
+		}
 
 		private void Update()
 		{
-			if (SeenByTarget())
+			if (behaviourActivated && isAlived)
 			{
-				timeUnseen = 0;
-			}
-			else
-			{
-				timeUnseen += Time.deltaTime;
-			}
+				if (SeenByTarget())
+				{
+					timeUnseen = 0;
+				}
+				else
+				{
+					timeUnseen += Time.deltaTime;
+				}
 
-			if (timeUnseen > maxTimeUnseen)
-			{
-				timeUnseen = 0.0f;
-				ChangePosition();
+				if (timeUnseen > maxTimeUnseen)
+				{
+					timeUnseen = 0.0f;
+					ChangePosition();
+				}
 			}
 		}
 
@@ -67,5 +78,17 @@ namespace aburron.AI
 				transform.position = new Vector3(hitInfo.point.x, 2.0f, hitInfo.point.z);
 			}
 		}
+
+		private void CheckIreneBehaviour(int behaviourIndex)
+		{
+			isAlived = false;
+
+			if (behaviourIndex == 2)
+			{
+				behaviourActivated = true;
+			}
+		}
+
+		private void Alive() => isAlived = true;
 	}
 }
