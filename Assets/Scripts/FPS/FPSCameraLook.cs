@@ -15,11 +15,40 @@ namespace aburron.FPS
 		private Vector2 lookVelocity = new Vector2();
 
 		private float camPitch = 0.0f;
+		private float sensitivity = 0.0f;
 
 		#region MonoBehaviour Callbacks
+
+		protected override void Awake()
+		{
+			base.Awake();
+
+			Events.GameEvents.onPageInteraction += Freeze;
+			Events.GameEvents.onPageTaken += UnFreeze;
+		}
+
+
+		private void Start()
+		{
+			UnFreeze();
+		}
+
 		private void Update()
 		{
 			Look();
+		}
+
+		private void OnValidate()
+		{
+			UnFreeze();
+		}
+
+		protected override void OnDestroy()
+		{
+			base.OnDestroy();
+
+			Events.GameEvents.onPageInteraction -= Freeze;
+			Events.GameEvents.onPageTaken -= UnFreeze;
 		}
 		#endregion
 
@@ -32,12 +61,15 @@ namespace aburron.FPS
 		{
 			lookDelta = Vector2.SmoothDamp(lookDelta, lookDir, ref lookVelocity, smoothTime);
 
-			camPitch -= lookDelta.y * mouseSensitivity;
+			camPitch -= lookDelta.y * sensitivity;
 			camPitch = Mathf.Clamp(camPitch, -camLimit, camLimit);
 
 			cam.transform.localEulerAngles = Vector3.right * camPitch;
-			transform.Rotate(Vector3.up * lookDelta.x * mouseSensitivity);
+			transform.Rotate(Vector3.up * lookDelta.x * sensitivity);
 		}
+
+		private void Freeze(int _) => sensitivity = 0;
+		private void UnFreeze() => sensitivity = mouseSensitivity;
 		#endregion
 
 		public override void EnableInput()

@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 649713997}
   - component: {fileID: 649713998}
   - component: {fileID: 649713999}
+  - component: {fileID: 649714000}
   m_Layer: 5
   m_Name: PagesPanel
   m_TagString: Untagged
@@ -356,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308d32ab06e2f9a4c9cbd66bbdf0dfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pageAmountTextVisibilityInScreen: 3
+  pageAmountTextVisibilityInScreen: 1.5
   pagePanel: {fileID: 1616162206}
   pageAmountPanel: {fileID: 396987389}
   pageAmountText: {fileID: 806705503}
@@ -377,6 +378,27 @@ MonoBehaviour:
   folderPath: Pages
   fileNamePattern: page
   fileExtension: txt
+--- !u!114 &649714000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649713996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018fa8eab281bc04c91d8bde2561b6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+  - event:/Dialogues/Page1
+  - event:/Dialogues/Page2
+  - event:/Dialogues/Page3
+  - event:/Dialogues/Page4
+  - event:/Dialogues/Page5
+  - event:/Dialogues/Page6
+  - event:/Dialogues/Page7
+  - event:/Dialogues/Page8
 --- !u!1 &754128498
 GameObject:
   m_ObjectHideFlags: 0

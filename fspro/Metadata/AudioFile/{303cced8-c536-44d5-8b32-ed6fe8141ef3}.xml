@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{4a0cf6fd-ea84-460f-be0c-7e91e5d61163}">
+	<object class="AudioFile" id="{303cced8-c536-44d5-8b32-ed6fe8141ef3}">
 		<property name="assetPath">
-			<value>Footsteps/footstep4.wav</value>
+			<value>Pages/page5.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.79807256235827662</value>
+			<value>25.630083333333335</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{b58fda35-6736-41e4-9faf-725303da1183}</destination>

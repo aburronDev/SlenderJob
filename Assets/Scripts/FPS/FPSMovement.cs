@@ -14,9 +14,18 @@ namespace aburron.FPS
 		private float moveSpeed = 0.0f;
 
 		#region MonoBehaviours Callbacks
+
+		protected override void Awake()
+		{
+			base.Awake();
+
+			Events.GameEvents.onPageInteraction += Freeze;
+			Events.GameEvents.onPageTaken += Unfreeze;
+		}
+
 		private void Start()
 		{
-			moveSpeed = walkSpeed;
+			Unfreeze();
 		}
 
 		private void FixedUpdate()
@@ -26,7 +35,15 @@ namespace aburron.FPS
 
 		private void OnValidate()
 		{
-			moveSpeed = walkSpeed;
+			Unfreeze();
+		}
+
+		protected override void OnDestroy()
+		{
+			base.OnDestroy();
+
+			Events.GameEvents.onPageInteraction -= Freeze;
+			Events.GameEvents.onPageTaken -= Unfreeze;
 		}
 		#endregion
 
@@ -46,6 +63,9 @@ namespace aburron.FPS
 			if (moveVelocity != Vector3.zero)
 				player.Move(player.Position + moveVelocity * Time.fixedDeltaTime);
 		}
+
+		private void Freeze(int _) => moveSpeed = 0.0f;
+		private void Unfreeze() => moveSpeed = walkSpeed;
 		#endregion
 
 		public override void EnableInput()
