@@ -11,9 +11,25 @@ namespace aburron.FPS
 		private bool footstepEventConditionIsValid = false;
 
 		#region MonoBehaviours Callbacks
+		protected override void Awake()
+		{
+			base.Awake();
+
+			Events.GameEvents.onPageInteraction += PauseSound;
+			Events.GameEvents.onPageTaken += ResumeSound;
+		}
+
 		private void Start()
 		{
-			InvokeRepeating(nameof(PlaySound), 0, soundSpeed);
+			ResumeSound();
+		}
+
+		protected override void OnDestroy()
+		{
+			base.OnDestroy();
+
+			Events.GameEvents.onPageInteraction -= PauseSound;
+			Events.GameEvents.onPageTaken -= ResumeSound;
 		}
 		#endregion
 
@@ -32,6 +48,9 @@ namespace aburron.FPS
 
 			FMODUnity.RuntimeManager.PlayOneShot(inputSound);
 		}
+
+		private void PauseSound(int _) => CancelInvoke();
+		private void ResumeSound() => InvokeRepeating(nameof(PlaySound), 0, soundSpeed);
 		#endregion
 
 		public override void EnableInput()

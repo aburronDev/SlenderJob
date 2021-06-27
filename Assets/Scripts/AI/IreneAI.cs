@@ -15,10 +15,13 @@ namespace aburron.AI
 		[SerializeField] private float maxSpawnDistance = 20.0f;
 		[Header("Time Unseen")]
 		[SerializeField] private float maxTimeUnseen = 4.0f;
+		[Space]
+		[SerializeField, FMODUnity.EventRef] private string screamSoundEvent;
 
 		private bool behaviourActivated = false;
 		private bool isAlived = false;
 		private float timeUnseen = 0.0f;
+		private bool canScream = true;
 
 		private void Awake()
 		{
@@ -33,6 +36,12 @@ namespace aburron.AI
 				if (SeenByTarget())
 				{
 					timeUnseen = 0;
+					if (canScream)
+					{
+						canScream = false;
+						FMODUnity.RuntimeManager.PlayOneShot(screamSoundEvent);
+						Utils.AbuTimer.Play(2f, () => canScream = true);
+					}
 				}
 				else
 				{

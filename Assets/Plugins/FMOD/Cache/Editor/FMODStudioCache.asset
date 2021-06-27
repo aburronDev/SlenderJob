@@ -46,6 +46,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 807
+--- !u!114 &-5698096465698140039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Knock
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Knock
+  guid: 4c9f5d146013d34da5f97c4cdcadae82
+  Banks:
+  - {fileID: 3806290606770109240}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2307
 --- !u!114 &-5315718501115185480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,11 +153,11 @@ MonoBehaviour:
   Path: fspro/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637603981000649484
+  lastModified: 637604024961801343
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1048
+    Value: 1218
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -161,12 +184,16 @@ MonoBehaviour:
   - {fileID: -7229307473747856321}
   - {fileID: -3900953754700757276}
   - {fileID: -6991419382640223559}
+  - {fileID: 8044291357624311256}
+  - {fileID: 8210350176226129910}
+  - {fileID: 8257565119084875696}
+  - {fileID: -5698096465698140039}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3806290606770109240}
   StringsBanks:
   - {fileID: -1599132364895642065}
-  stringsBankWriteTime: 637603981000649484
+  stringsBankWriteTime: 637604024961801343
   cacheVersion: 6
 --- !u!114 &1136056145700678875
 MonoBehaviour:
@@ -275,7 +302,7 @@ MonoBehaviour:
   Path: fspro/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637603981000639473
+  lastModified: 637604024961781326
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -302,3 +329,72 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 19030
+--- !u!114 &8044291357624311256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Irene/Scream
+  m_EditorClassIdentifier: 
+  Path: event:/Irene/Scream
+  guid: d994d466c93dc145a3bb3e12b396dc48
+  Banks:
+  - {fileID: 3806290606770109240}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
+--- !u!114 &8210350176226129910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Intro
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Intro
+  guid: 04b078e0c7aeb542acc0ceb9a99f946d
+  Banks:
+  - {fileID: 3806290606770109240}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 13500
+--- !u!114 &8257565119084875696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/BG
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/BG
+  guid: 139794d08198f445acba740a9963de71
+  Banks:
+  - {fileID: 3806290606770109240}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 29538

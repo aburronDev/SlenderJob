@@ -11,18 +11,22 @@ namespace aburron.Controllers
 		private void Awake()
 		{
 			Events.GameEvents.onGameWon += FinishGame;
-			Events.GameEvents.onGameLost += RestartGame;
+			//Events.GameEvents.onGameLost += RestartGame;
 		}
 
 		private void Start()
 		{
-			Utils.AbuTimer.Play(gameDuration, RestartGame);
+			//Utils.AbuTimer.Play(gameDuration, RestartGame);
 		}
 
 
 		private void FinishGame()
 		{
-			throw new NotImplementedException();
+			#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+			#else
+			Application.Quit();
+			#endif
 		}
 
 		private void RestartGame()

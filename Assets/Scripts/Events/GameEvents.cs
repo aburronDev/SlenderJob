@@ -6,6 +6,7 @@ namespace aburron.Events
 	{
 		public static Action<int> onPageInteraction;
 		public static Action onPageTaken;
+		public static Action onFirstPageTaken;
 		public static Action onAllPagesTaken;
 		public static Action onGameWon;
 		public static Action onGameLost;

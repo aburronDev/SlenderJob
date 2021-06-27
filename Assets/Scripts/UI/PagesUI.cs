@@ -44,6 +44,9 @@ namespace aburron.UI
 			pageAmountPanel.SetActive(true);
 			helpText.SetActive(false);
 
+			if (internalPageAmount == 1)
+				GameEvents.onFirstPageTaken?.Invoke();
+
 			if (internalPageAmount >= 8)
 				GameEvents.onAllPagesTaken?.Invoke();
 
