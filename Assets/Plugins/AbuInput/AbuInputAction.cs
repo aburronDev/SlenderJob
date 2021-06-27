@@ -650,7 +650,7 @@ namespace aburron.Input
                 {
                     ""name"": """",
                     ""id"": ""51907b64-a438-4266-95f7-95473d1cc8c7"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

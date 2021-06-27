@@ -14,6 +14,7 @@ namespace aburron.UI
 		[SerializeField, Editor.Required] private GameObject pagePanel;
 		[SerializeField, Editor.Required] private GameObject pageAmountPanel;
 		[SerializeField, Editor.Required] private TextMeshProUGUI pageAmountText;
+		[SerializeField, Editor.Required] private GameObject helpText;
 
 		private int internalPageAmount;
 
@@ -33,12 +34,15 @@ namespace aburron.UI
 				pageAmountText.text = $"pages {pageAmount}/8\nGo to the exit";
 			else
 				pageAmountText.text = $"pages {pageAmount}/8";
+
+			helpText.SetActive(true);
 		}
 
 		private void PageTakenEventUI()
 		{
 			pagePanel.SetActive(false);
 			pageAmountPanel.SetActive(true);
+			helpText.SetActive(false);
 
 			if (internalPageAmount >= 8)
 				GameEvents.onAllPagesTaken?.Invoke();
