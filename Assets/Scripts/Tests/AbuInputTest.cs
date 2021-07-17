@@ -2,11 +2,9 @@ using UnityEngine;
 
 namespace aburron.Tests
 {
-	using Input;
-
 	public class AbuInputTest : MonoBehaviour
 	{
-		private AbuInput input = new AbuInput();
+		private Input.AbuInput input = new Input.AbuInput();
 
 		public void Awake()
 		{

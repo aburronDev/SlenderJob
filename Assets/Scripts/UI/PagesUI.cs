@@ -3,17 +3,16 @@ using TMPro;
 
 namespace aburron.UI
 {
-	using Events;
-	using Utils;
+	using GameEvents = Events.GameEvents;
 
 	public class PagesUI : MonoBehaviour
 	{
-
 		[SerializeField] private float pageAmountTextVisibilityInScreen = 3.0f;
 		[Space]
 		[SerializeField, Editor.Required] private GameObject pagePanel;
 		[SerializeField, Editor.Required] private GameObject pageAmountPanel;
 		[SerializeField, Editor.Required] private TextMeshProUGUI pageAmountText;
+		[SerializeField, Editor.Required] private GameObject endPanel;
 		[SerializeField, Editor.Required] private GameObject helpText;
 
 		private int internalPageAmount;
@@ -22,6 +21,7 @@ namespace aburron.UI
 		{
 			GameEvents.onPageInteraction += PageInteractionEventUI;
 			GameEvents.onPageTaken += PageTakenEventUI;
+			GameEvents.onExitDoor += EndPanelEventUI;
 		}
 
 		private void PageInteractionEventUI(int pageAmount)
@@ -50,13 +50,19 @@ namespace aburron.UI
 			if (internalPageAmount >= 8)
 				GameEvents.onAllPagesTaken?.Invoke();
 
-			AbuTimer.Play(pageAmountTextVisibilityInScreen, () => pageAmountPanel.SetActive(false));
+			Utils.AbuTimer.Play(pageAmountTextVisibilityInScreen, () => pageAmountPanel.SetActive(false));
+		}
+
+		private void EndPanelEventUI()
+		{
+			endPanel.SetActive(true);
 		}
 
 		private void OnDestroy()
 		{
-			Events.GameEvents.onPageInteraction -= PageInteractionEventUI;
-			Events.GameEvents.onPageTaken -= PageTakenEventUI;
+			GameEvents.onPageInteraction -= PageInteractionEventUI;
+			GameEvents.onPageTaken -= PageTakenEventUI;
+			GameEvents.onExitDoor -= EndPanelEventUI;
 		}
 	}
 }

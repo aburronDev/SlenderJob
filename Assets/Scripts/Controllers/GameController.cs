@@ -1,24 +1,21 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace aburron.Controllers
 {
 	public class GameController : MonoBehaviour
 	{
-		[SerializeField] private float gameDuration = 600.0f;
+		[SerializeField] private float gameDuration = 40.0f;
 
 		private void Awake()
 		{
 			Events.GameEvents.onGameWon += FinishGame;
-			//Events.GameEvents.onGameLost += RestartGame;
+			Events.GameEvents.onExitDoor += StartFinishTimer;
 		}
 
-		private void Start()
+		private void StartFinishTimer()
 		{
-			//Utils.AbuTimer.Play(gameDuration, RestartGame);
+			Utils.AbuTimer.Play(gameDuration, FinishGame);
 		}
-
 
 		private void FinishGame()
 		{
@@ -29,9 +26,10 @@ namespace aburron.Controllers
 			#endif
 		}
 
-		private void RestartGame()
+		private void OnDestroy()
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			Events.GameEvents.onGameWon -= FinishGame;
+			Events.GameEvents.onExitDoor -= StartFinishTimer;
 		}
 
 	}

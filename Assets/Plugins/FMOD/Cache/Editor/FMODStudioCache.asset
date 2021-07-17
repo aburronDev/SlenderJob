@@ -153,7 +153,7 @@ MonoBehaviour:
   Path: fspro/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637604102761893452
+  lastModified: 637608211970239912
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -193,7 +193,7 @@ MonoBehaviour:
   - {fileID: 3806290606770109240}
   StringsBanks:
   - {fileID: -1599132364895642065}
-  stringsBankWriteTime: 637604102761893452
+  stringsBankWriteTime: 637608211970239912
   cacheVersion: 6
 --- !u!114 &1136056145700678875
 MonoBehaviour:
@@ -302,7 +302,7 @@ MonoBehaviour:
   Path: fspro/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637604102761883443
+  lastModified: 637608211970219897
   LoadResult: 0
   FileSizes: []
   Exists: 1

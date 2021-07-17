@@ -21,6 +21,7 @@ namespace aburron.FPS
 		private void Awake()
 		{
 			controller = GetComponent<Rigidbody>();
+			Events.GameEvents.onExitDoor += () => input.Disable();
 
 			input.Enable();
 		}

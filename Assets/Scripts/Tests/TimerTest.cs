@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace aburron.Tests
 {
-	using Utils;
+	using AbuTimer = Utils.AbuTimer;
 
 	public class TimerTest : MonoBehaviour
 	{

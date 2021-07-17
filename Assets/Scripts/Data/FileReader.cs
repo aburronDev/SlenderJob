@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -22,8 +21,6 @@ namespace aburron.Data
 				$"{Application.streamingAssetsPath}/{folderPath}/{fileNamePattern}{fileIndex}.{fileExtension}";
 			var fileText = System.IO.File.ReadAllText(filePath);
 
-			Debug.Log(filePath);
-			Debug.Log(fileText);
 			dataText.text = fileText;
 		}
 
