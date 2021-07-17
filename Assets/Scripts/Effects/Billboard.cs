@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace aburron.Effect
 {
+	[ExecuteAlways]
 	public class Billboard : MonoBehaviour
 	{
 		[SerializeField, Editor.Required] private Transform cam;

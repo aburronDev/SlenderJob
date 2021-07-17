@@ -1,12 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace aburron.Audio
 {
 	public class PageAudio : MonoBehaviour
 	{
-		[SerializeField, FMODUnity.EventRef] private List<string> dialogues;
+		[SerializeField, FMODUnity.EventRef] private System.Collections.Generic.List<string> dialogues;
 
 		private FMOD.Studio.EventInstance instance;
 

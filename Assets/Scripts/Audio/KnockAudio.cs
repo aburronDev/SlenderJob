@@ -11,6 +11,7 @@ namespace aburron.Audio
 		private void Awake()
 		{
 			Events.GameEvents.onFirstPageTaken += LoopSound;
+			Events.GameEvents.onExitDoor += StopDialogue;
 		}
 
 		private void LoopSound()

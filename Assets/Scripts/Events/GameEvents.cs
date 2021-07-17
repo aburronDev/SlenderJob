@@ -8,7 +8,8 @@ namespace aburron.Events
 		public static Action onPageTaken;
 		public static Action onFirstPageTaken;
 		public static Action onAllPagesTaken;
+		public static Action onExitDoor;
 		public static Action onGameWon;
-		public static Action onGameLost;
+		//public static Action onGameLost;
 	}
 }

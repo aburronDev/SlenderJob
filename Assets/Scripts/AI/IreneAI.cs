@@ -6,6 +6,7 @@ namespace aburron.AI
 	{
 		[SerializeField, Editor.Required] private Transform target;
 		[SerializeField] private float vision = 0.8f;
+		[SerializeField] private float screamDistance = 10f;
 		[Space]
 		[Header("Random Spawn Angle")]
 		[SerializeField] private float minSpawnAngle = 0.0f;
@@ -27,16 +28,19 @@ namespace aburron.AI
 		{
 			Events.GameEvents.onPageInteraction += CheckIreneBehaviour;
 			Events.GameEvents.onPageTaken += Alive;
+			Events.GameEvents.onExitDoor += () => enabled = false;
 		}
 
 		private void Update()
 		{
 			if (behaviourActivated && isAlived)
 			{
+				var distance = (transform.position - target.transform.position).magnitude;
+
 				if (SeenByTarget())
 				{
 					timeUnseen = 0;
-					if (canScream)
+					if (canScream && distance <= screamDistance)
 					{
 						canScream = false;
 						FMODUnity.RuntimeManager.PlayOneShot(screamSoundEvent);
@@ -50,8 +54,11 @@ namespace aburron.AI
 
 				if (timeUnseen > maxTimeUnseen)
 				{
-					timeUnseen = 0.0f;
-					ChangePosition();
+					if (distance >= screamDistance)
+					{
+						timeUnseen = 0.0f;
+						ChangePosition();
+					}
 				}
 			}
 		}
@@ -83,6 +90,12 @@ namespace aburron.AI
 			{
 				if (hitInfo.collider == null)
 					return;
+
+				if (SeenByTarget())
+				{
+					ChangePosition();
+					return;
+				}
 
 				transform.position = new Vector3(hitInfo.point.x, 2.0f, hitInfo.point.z);
 			}
